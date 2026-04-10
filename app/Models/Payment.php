@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['user_id', 'motor_id', 'start_date', 'end_date'])]
-class Rental extends Model
+#[Fillable('rental_id', 'invoice_number', 'amount', 'status_payment', 'payment_method')]
+class Payment extends Model
 {
     use HasUuids;
 
@@ -15,10 +15,10 @@ class Rental extends Model
     {
         return [
             'id' => 'string',
-            'user_id' => 'string',
-            'motor_id' => 'integer',
-            'start_date' => 'datetime',
-            'end_date' => 'datetime',
+            'rental_id' => 'string',
+            'amount' => 'decimal:2',
+            'status_payment' => 'string',
+            'payment_method' => 'string',
         ];
     }
 }
